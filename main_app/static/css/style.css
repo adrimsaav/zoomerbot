@@ -1,3 +1,77 @@
 body {
     background-color: white;
 }
+
+.home-chat-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-messages {
+    padding: 10px;
+    height: 85vh;
+    overflow-y: auto;
+}
+
+.home-message {
+    width: 45%;
+    max-width: 55%;
+    color: white;
+    padding: 8px 10px;
+    margin: 5px;
+    border-radius: 18px;
+    line-height: 1.4;
+    font-size: 16px;
+    text-align: center;
+}
+
+.home-sent {
+    background-color: #007aff;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.home-received {
+    background-color: #e5e5ea;
+    color: black;
+    margin-left: 10px;
+}
+
+
+.home-input-area {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+}
+
+.home-input-area input {
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+}
+
+.home-input-area button {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.home-input-area input:focus, .home-input-area button:focus {
+    outline: none;
+}
+
+.home-input-area button:hover {
+    background-color: #005ecb;
+}
