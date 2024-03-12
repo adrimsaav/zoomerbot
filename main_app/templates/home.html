@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zoomerbot</title>
-</head>
-<body>
-    {% extends 'base.html' %}
-    <h1>zoomerbot</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="home-chat-container">
+    <div class="home-messages">
+        <div class="home-message home-sent">
+            Hello, how are you?
+        </div>
+        <div class="home-message home-received">
+            I'm good, thanks! And you?
+        </div>
+    </div>
+    <div class="home-input-area">
+        <input type="text" placeholder="Type a message...">
+        <button>Send</button>
+    </div>
+</div>
+
+{% endblock %}
