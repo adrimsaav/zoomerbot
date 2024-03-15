@@ -4,6 +4,7 @@
     <nav>
       <div class="nav-wrapper">
         {% if user.is_authenticated %}
+        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
         <div class="home-chat-container">
             <div class="home-messages">
                 <div class="home-message home-sent">
@@ -19,20 +20,9 @@
         </div>
     </div>
         {% else %}
-        <div class="login-container">
-            <div class="login-image"></div>
-            <div class="login-form-container">
-                <h1>Login</h1>
-                <form method="POST">
-                    {% csrf_token %}
-                    <label for="id_username">Username:</label>
-                    <input type="text" id="id_username" name="username">
-                    <label for="id_password">Password:</label>
-                    <input type="password" id="id_password" name="password">
-                    <button type="submit">Login</button>
-                </form>
-            </div>
-        </div>
+        <h1>Log In</h1>
+        <a href="{% url 'login' %}">Log In</a>
+
         
         <div class="landing-page">
             <div></div>

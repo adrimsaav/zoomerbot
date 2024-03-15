@@ -28,6 +28,5 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)
 
-
 def logout(request):
     return redirect('home')
