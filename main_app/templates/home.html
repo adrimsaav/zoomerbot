@@ -19,8 +19,22 @@
         </div>
     </div>
         {% else %}
+        <div class="login-container">
+            <div class="login-image"></div>
+            <div class="login-form-container">
+                <h1>Login</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    <label for="id_username">Username:</label>
+                    <input type="text" id="id_username" name="username">
+                    <label for="id_password">Password:</label>
+                    <input type="password" id="id_password" name="password">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+        
         <div class="landing-page">
-            <h1 class="zoomerbot-logo">zoomerbot</h1>
             <div></div>
             <p>Don't have an account?</p>
             <a href="{% url 'signup' %}">Sign Up</a>
