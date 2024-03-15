@@ -6,5 +6,5 @@ from .models import User
 
 class UserAdmin(admin.ModelAdmin):
     model = User
-    # display username on admin page
+    # display name on admin page
     fields = ["name"]
