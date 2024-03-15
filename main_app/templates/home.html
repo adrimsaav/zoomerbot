@@ -1,19 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<div class="home-chat-container">
-    <div class="home-messages">
-        <div class="home-message home-sent">
-            Hello, how are you?
+<header class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        {% if user.is_authenticated %}
+        <div class="home-chat-container">
+            <div class="home-messages">
+                <div class="home-message home-sent">
+                    Hello, how are you?
+                </div>
+                <div class="home-message home-received">
+                    I'm good, thanks! And you?
+                </div>
         </div>
-        <div class="home-message home-received">
-            I'm good, thanks! And you?
+        <div class="home-input-area">
+            <input type="text" placeholder="Type a message...">
+            <button>Send</button>
         </div>
     </div>
-    <div class="home-input-area">
-        <input type="text" placeholder="Type a message...">
-        <button>Send</button>
-    </div>
-</div>
+        {% else %}
+        <div class="landing-page">
+            <h1 class="zoomerbot-logo">zoomerbot</h1>
+            <div></div>
+            <p>Don't have an account?</p>
+            <a href="{% url 'signup' %}">Sign Up</a>
+        </div>
+        <ul>
+      </div>
+    </nav>
+    {% endif %}
+  </header>
 
 {% endblock %}
