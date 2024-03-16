@@ -4,8 +4,33 @@ load_dotenv()
 
 import os
 import streamlit as st
-from vertexai.preview.generative_models import GenerativeModel
+import google.generativeai as genai
 
-GenerativeModel.configure(api_key=os.getenv('API_KEY'))
 
-model = GenerativeModel('gemini-1.0-pro')
+genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+
+model = genai.GenerativeModel('gemini-pro')
+chat = model.start_chat(history=[])
+
+# q will be for question
+def get_response(q):
+    response=chat.send_message(q, stream=True)
+    return response
+
+# Initialize streamlit 
+st.set_page_config(page_title='ZoomerBot')
+st.header('ZoomerBot')
+
+if 'chat_history' not in st.session_state:
+    st.session_state['chat_history'] = []
+
+input = st.text_input('Input:', key='input')
+submit = st.button('Submit')
+
+if submit and input:
+    response = get_response(input)
+    st.session_state['chat_history'].append(('You', input))
+    st.subheader('Response')
+    for chunk in response:
+        st.write(chunk.text)
+        st.session_state['chat_history'].append(('ZoomerBot', chunk.text))
